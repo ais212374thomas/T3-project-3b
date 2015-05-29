@@ -1,0 +1,263 @@
+<html>
+<head>
+<title> Lab 10-C </title>
+<script src="../processing-1.4.1.js"></script>
+<script type="text/processing" data-processing-target="mycanvas">
+
+int spd;
+int redx;
+int redy;
+int bluex;
+int bluey;
+int blueh;
+int bluev;
+int greenx;
+int greeny;
+int yellowx;
+int yellowy;
+int yellowh;
+int yellowv;
+int pinkx;
+int pinky;
+int pinkh;
+int pinkv;
+
+
+boolean right;
+boolean down;
+int pinkx;
+int pinky;
+int pinkh;
+int pinkv;
+boolean blueExpand;
+
+int randX;
+int randY;
+
+int wallCounter;
+boolean wallExist;
+
+
+void setup()
+{  
+
+
+    size( 750,500);  
+    background(0,0,0);
+    frameRate( 30 );
+	
+	redx=50;
+	redy=50;
+	
+	bluex = 250;
+	bluey = 250;
+	blueh = 50;
+	bluev = 50;
+	
+	greenx = 50;
+	greeny = 50;
+	
+	yellowx = 50;
+	yellowy = 250;
+	yellowh = 50;
+	yellowv = 50;
+	
+	pinkx = 50;
+	pinky = 150;
+	pinkh = 50;
+	pinkv = 50;
+    
+    spd = 3;
+    
+    right = true;
+    down = true;
+    blueExpand = true;
+
+	randX = 10
+	randY = 10
+	
+	wallCounter = 7
+	wallExist = true;
+
+}
+    
+
+
+	void draw()
+{
+
+	size( 750,500);  
+	background(0,0,0);
+	frameRate( 30 );	
+	
+	fill(255,255,255);
+	text(randX,50,50);
+	text(randY,50,60);	
+	
+	if(redx < 25 )
+	{
+	randX = random(10,20);
+	randY = random(10,20);	
+	}
+
+	if(redy < 25)
+	{
+	randX = random(10,20);
+	randY = random(10,20);
+	}
+
+
+
+	if(redy>=475)
+	{
+	randX = random(11,21);
+	randY = random(11,21);
+	}
+	
+	if(wallCounter<=0)
+	{
+	wallExist = false;
+	}
+	
+	fill(255,0,0);
+	ellipse(redx,redy,50,50);	
+		
+	if(wallExist == true)
+	{
+
+		if(redx>=475)
+	{
+	randX = random(11,21);
+	randY = random(11,21);	
+	}
+	
+	
+		if(redx<=25)
+		{
+		right = true;
+		}
+		if(right == true)
+			{
+				redx = redx+randX;
+			}
+	
+		if(redx>=475)
+		{
+		right = false;
+		wallCounter = wallCounter - 1;
+
+		}
+
+		if(right==false)
+			{
+				redx = redx-randX;
+			}
+	
+		if(redy<=25)
+		{
+		down = true;
+		}	
+		if(down == true)
+		{
+		redy = redy + randY;
+		}
+	
+		if(redy>=477)
+		{
+		down = false;
+		}
+		if(down == false)
+		{
+		redy = redy - randY;
+		}
+	
+	
+
+	
+		fill(255,255,255);
+		text(wallCounter,680,490);
+		stroke(255,255,255);
+		strokeWeight(10);
+		line(501,0,500,500);
+	
+	
+		if(wallCounter <= 0)
+		{
+		size( 750,500);  
+		background(0,0,0);
+		frameRate( 30 );
+	
+		}
+	
+
+	
+	
+
+	}
+	
+	if(wallExist == false)
+	{
+			if(redx>=725)
+	{
+	randX = random(11,21);
+	randY = random(11,21);	
+	}
+		
+		
+		if(redx<=25)
+		{
+		right = true;
+		}
+		if(right == true)
+			{
+				redx = redx+randX;
+			}
+	
+		if(redx>=725)
+		{
+		right = false;
+
+
+		}
+
+		if(right==false)
+			{
+				redx = redx-randX;
+			}
+	
+		if(redy<=25)
+		{
+		down = true;
+		}	
+		if(down == true)
+		{
+		redy = redy + randY;
+		}
+	
+		if(redy>=457)
+		{
+		down = false;
+		}
+		if(down == false)
+		{
+		redy = redy - randY;
+		}
+	}
+	
+
+
+	
+
+
+
+}
+
+
+</script>
+<canvas id="mycanvas"></canvas>
+</head>
+
+<body>
+
+</body>
+</html>
